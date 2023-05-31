@@ -6,12 +6,7 @@ const OrderBook = () => {
     const dispatch = useDispatch();
 
     useEffect(() => {
-        const socket = io("wss://api-pub.bitfinex.com/ws/2", {
-            extraHeaders: {
-              "access-control-allow-origin": '*',
-              "access-control-allow-methods": "POST, GET, OPTIONS",
-            }
-        });
+        const socket = io("wss://api-pub.bitfinex.com/ws/2");
 
         socket.emit('subscribe', {
             event: 'subscribe',
